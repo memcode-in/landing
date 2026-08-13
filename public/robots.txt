@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /code/
+Disallow: /dashboard
+Disallow: /login
+Disallow: /oauth/
+
+Sitemap: https://memcode.in/sitemap.xml

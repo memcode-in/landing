@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "slug": "memory-missing-piece-existing-coding-agents",
+    "title": "Memory: The missing piece in existing coding agents",
+    "subtitle": "Coding agents can edit files and run commands, but without memory they keep treating every session like the first one.",
+    "description": "Why persistent project memory is becoming the core layer that existing coding agents are still missing.",
+    "author": "Vivek Gupta",
+    "date": "July 4, 2026",
+    "readTime": "6 min read",
+    "category": "Memory",
+    "featured": true,
+    "image": "/blog_1.jpeg",
+    "sections": [
+      {
+        "id": "intro",
+        "title": "Introduction",
+        "content": [
+          "Coding agents have become much better at reading a repository, changing files, running commands, and explaining what they did. But most of them still miss the layer that makes a real developer effective over time: memory.",
+          "A developer does not approach a codebase as a blank slate every morning. They remember why a certain auth flow exists, which tests are flaky, what naming patterns the team prefers, where the fragile module lives, and what failed the last time someone tried a similar change. Current coding agents usually have to rediscover all of that again and again."
+        ]
+      },
+      {
+        "id": "context-reset",
+        "title": "The Context Reset Problem",
+        "content": [
+          "The biggest weakness in many coding agents is not that they cannot write code. It is that they forget the project as soon as the session ends. The next prompt starts another round of scanning files, asking for context, guessing conventions, and repeating work that was already solved before.",
+          "This reset is expensive. It costs tokens, time, and trust. The agent may choose a pattern that was rejected last week, run the wrong command, miss a project-specific constraint, or ask the user to explain something that should already be known.",
+          "Longer context windows help, but they do not solve the real problem. A large context window is still temporary. What coding agents need is a durable memory layer that can preserve the right project knowledge across sessions."
+        ]
+      },
+      {
+        "id": "what-memory-means",
+        "title": "What Memory Should Mean",
+        "content": [
+          "Memory should not be a giant transcript dump. That would only move the problem from forgetting to noise. Useful memory is selective. It keeps facts that are stable, decisions that matter, and patterns that change how future work should be done.",
+          "For a coding agent, memory should capture things like architecture decisions, setup commands, testing workflows, team preferences, known pitfalls, recent fixes, file ownership patterns, and the reasoning behind important choices.",
+          "This is why we benchmark memory directly. MemCode memory scores 94.2% on LongMemEval and 93% on LoCoMo, giving it state-of-the-art results on benchmarks built to test long-horizon recall and conversational memory. That is the basis for calling it the world's best memory: not just because it stores context, but because it retrieves the right context when it matters.",
+          "The goal is simple: when the agent starts a new task, it should already know the parts of the project that a recurring teammate would know. It should begin closer to the answer instead of beginning with rediscovery."
+        ]
+      },
+      {
+        "id": "why-existing-agents-fall-short",
+        "title": "Why Existing Agents Fall Short",
+        "content": [
+          "Most existing coding agents are optimized around the immediate task. They can inspect the repository, produce a plan, make edits, and run verification. That is useful, but it is still mostly session-based intelligence.",
+          "The missing piece is continuity. Without memory, the agent has no durable sense of what happened before. It cannot reliably remember that the team prefers a specific style, that a migration failed for a particular reason, or that a previous bug was fixed by changing a hidden dependency between modules.",
+          "This is why many agent experiences feel impressive at first and repetitive over time. The agent can act smart in the moment, but it does not compound knowledge the way a real engineering teammate does."
+        ]
+      },
+      {
+        "id": "what-changes-with-memory",
+        "title": "What Changes With Memory",
+        "content": [
+          "When memory becomes part of the agent loop, the workflow changes. The agent can recall relevant project facts before planning. It can avoid rejected approaches. It can reuse working commands. It can explain changes using the history of the codebase, not just the files currently open.",
+          "Memory also makes model routing more practical. Different models can be used for speed, cost, or reasoning depth, while the same project memory stays underneath. The model can change, but the project understanding remains stable.",
+          "Most importantly, memory makes the agent feel less like a tool that starts over and more like a teammate that gets sharper every time it works with the repo."
+        ]
+      },
+      {
+        "id": "conclusion",
+        "title": "Conclusion",
+        "content": [
+          "The future of coding agents is not only about better code generation. It is about continuity. Agents need to remember the codebase, the decisions, the workflows, and the lessons learned from previous tasks.",
+          "Memory is the layer that turns isolated agent sessions into a system that compounds. Without it, coding agents remain powerful but forgetful. With it, they can become genuinely useful long-term collaborators for software teams."
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,92 @@
+.contact-page .mk-hero__background::after {
+  background:
+    linear-gradient(180deg, rgba(3, 5, 9, 0.36) 0%, rgba(3, 5, 9, 0.16) 50%, rgba(3, 5, 9, 0.58) 100%),
+    linear-gradient(90deg, rgba(3, 5, 9, 0.48), rgba(3, 5, 9, 0.28));
+}
+
+.contact-page .mk-hero.mk-hero--with-background .mk-hero__inner {
+  max-width: var(--container);
+  justify-items: center;
+}
+
+.contact-page .mk-hero__copy {
+  width: 100%;
+  text-align: center;
+}
+
+.contact-page .mk-hero__title {
+  max-width: none;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: clamp(2rem, 3vw, 3rem);
+  text-wrap: balance;
+  white-space: nowrap;
+}
+
+.contact-page .mk-hero__subtitle {
+  max-width: none;
+  margin: 0;
+}
+
+.contact-page__channels {
+  display: grid;
+  width: min(100%, 780px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 7vw, 6rem);
+  margin: clamp(2.25rem, 5vw, 3.75rem) auto 0;
+}
+
+.contact-page__channel {
+  display: grid;
+  min-width: 0;
+  justify-items: center;
+  gap: 0.55rem;
+}
+
+.contact-page__channel-label {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.contact-page__email {
+  color: var(--blue-2);
+  font-family: var(--font-mono);
+  font-size: clamp(0.82rem, 1.25vw, 1rem);
+  font-style: normal;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.contact-page__email:hover {
+  color: white;
+}
+
+.contact-page__email:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--blue-2);
+  outline-offset: 4px;
+}
+
+.contact-page .mk-hero__actions {
+  justify-content: center;
+  margin-top: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+@media (max-width: 900px) {
+  .contact-page .mk-hero__title {
+    max-width: 680px;
+    font-size: clamp(2.25rem, 8vw, 3rem);
+    white-space: normal;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-page__channels {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
