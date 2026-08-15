@@ -4,7 +4,9 @@ import MarketingFooter from '../components/marketing/MarketingFooter'
 import { ProductHero, SectionIntro, NumberedCardGrid, ProductCTA } from '../components/marketing/primitives'
 import RetrievalRouter from '../components/marketing/RetrievalRouter'
 import MemoryInspector from '../components/marketing/MemoryInspector'
+import MemoryPricing from '../components/MemoryPricing'
 import { SITE_ORIGIN, useSeo } from '../lib/seo'
+import '../components/memory-pricing.css'
 
 const primitives = [
   { title: 'Persistent Memory', copy: 'Durable, cross-session memory that outlives the context window — the default, not a workaround.' },
@@ -89,6 +91,13 @@ export default function MemoryInfraPage() {
         brand: { '@type': 'Brand', name: 'MemCode' },
         description:
           'A memory control plane for AI: ingest, judge, store, retrieve, share, and govern memory across agents, copilots, and workflows.',
+        offers: {
+          '@type': 'AggregateOffer',
+          priceCurrency: 'USD',
+          lowPrice: 0,
+          highPrice: 5,
+          offerCount: 3,
+        },
       },
     ],
   })
@@ -201,6 +210,25 @@ export default function MemoryInfraPage() {
               </ol>
               <MemoryInspector />
             </div>
+          </div>
+        </section>
+
+        <section
+          id="pricing"
+          className="x-section x-section--dark memory-pricing--marketing"
+          aria-labelledby="memory-pricing-title"
+        >
+          <div className="container">
+            <SectionIntro
+              eyebrow="Pricing"
+              title="More memory. Less money."
+              align="center"
+              id="memory-pricing-title"
+            >
+              Start free, then scale for less than a coffee. Every plan shows exactly how many credits
+              you get and the workload those credits cover.
+            </SectionIntro>
+            <MemoryPricing />
           </div>
         </section>
 
