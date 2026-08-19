@@ -2,20 +2,13 @@ import { CSSProperties } from 'react'
 import MarketingNav from '../components/marketing/MarketingNav'
 import MarketingFooter from '../components/marketing/MarketingFooter'
 import { ProductHero, SectionIntro, NumberedCardGrid, ProductCTA } from '../components/marketing/primitives'
+import MemoryContextDemo from '../components/MemoryContextDemo'
 import RetrievalRouter from '../components/marketing/RetrievalRouter'
 import MemoryInspector from '../components/marketing/MemoryInspector'
 import MemoryPricing from '../components/MemoryPricing'
 import { SITE_ORIGIN, useSeo } from '../lib/seo'
+import '../components/memory-context-demo.css'
 import '../components/memory-pricing.css'
-
-const primitives = [
-  { title: 'Persistent Memory', copy: 'Durable, cross-session memory that outlives the context window — the default, not a workaround.' },
-  { title: 'Judge Before Write', copy: 'A judgment pass decides what to keep, merge, skip, or supersede — so memory stays clean.' },
-  { title: 'Codebase Scanner', copy: 'Point it at a repo and it extracts durable facts: patterns, decisions, commands, and structure.' },
-  { title: 'Context Importer', copy: 'Backfill memory from existing docs, chats, tickets, and transcripts in one pass.' },
-  { title: 'MCP Ready', copy: 'Expose ingest and recall as MCP tools, so any MCP-aware agent gets memory instantly.' },
-  { title: 'Memory Domains', copy: 'Partition memory into scoped domains with their own boundaries, access, and lifecycle.' },
-]
 
 const diyStack = [
   'Vector DB you stitch together',
@@ -113,12 +106,13 @@ export default function MemoryInfraPage() {
           backgroundImage="/landing_1.jpeg"
         />
 
-        <section id="primitives" className="x-section x-section--dark">
+        <section id="how-it-works" className="x-section x-section--dark memory-context-demo--marketing">
           <div className="container">
-            <SectionIntro eyebrow="Primitives" title="The building blocks of a real memory layer.">
-              Six primitives cover the whole lifecycle, so you compose memory instead of reinventing it.
+            <SectionIntro eyebrow="How it works" title="Watch a long conversation become usable memory.">
+              Paste a public ChatGPT, Claude, or Gemini share link — or upload a transcript. MemCode
+              parses every turn, judges what is durable, and shows the context reduction live.
             </SectionIntro>
-            <NumberedCardGrid cards={primitives} columns={3} />
+            <MemoryContextDemo />
           </div>
         </section>
 

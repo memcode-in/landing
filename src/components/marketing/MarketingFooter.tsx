@@ -25,8 +25,8 @@ const FOOTER_GROUPS: { title: string; links: [label: string, href: string, exter
     title: 'Developers',
     links: [
       ['Coding agent CLI', '/coding-agent#cli'],
-      ['Memory API', '/memory#control-plane'],
-      ['MCP setup', '/memory#primitives'],
+      ['Memory API docs', '/docs'],
+      ['How Memory works', '/memory#how-it-works'],
       ['Sign in', getDashboardLoginUrl(), true],
     ],
   },
