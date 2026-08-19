@@ -3,7 +3,6 @@ import CompanyBrainPricing from '../components/CompanyBrainPricing'
 import MarketingNav from '../components/marketing/MarketingNav'
 import MarketingFooter from '../components/marketing/MarketingFooter'
 import { SectionIntro, NumberedCardGrid, ProductCTA } from '../components/marketing/primitives'
-import LivingMemoryTimeline from '../components/marketing/LivingMemoryTimeline'
 import KnowledgeFlowGraph from '../components/marketing/KnowledgeFlowGraph'
 import CompanyCrowdScene from '../components/marketing/CompanyCrowdScene'
 import { COMPANY_BRAIN_DISCONNECTED_CONNECTORS } from '../components/marketing/companyBrainConnectors'
@@ -120,21 +119,6 @@ export default function CompanyBrainPage() {
             <div className="product-explainer__visual">
               <KnowledgeFlowGraph />
             </div>
-          </div>
-        </section>
-
-        <section className="x-section x-section--paper">
-          <div className="container">
-            <SectionIntro
-              eyebrow="Living memory"
-              title="Facts don’t freeze. Your memory shouldn’t either."
-              dark={false}
-            >
-              New information arrives, conflicts get judged, old facts are superseded — and the
-              current answer stays traceable to its source. Scrub the timeline to watch one fact
-              evolve.
-            </SectionIntro>
-            <LivingMemoryTimeline />
           </div>
         </section>
 
