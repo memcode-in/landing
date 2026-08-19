@@ -288,15 +288,20 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
   return <canvas ref={canvasRef} className="company-crowd__canvas" aria-hidden="true" />
 }
 
-export default function CompanyCrowdScene() {
+export default function CompanyCrowdScene({ hero = false }: { hero?: boolean }) {
   return (
-    <section className="company-crowd" aria-labelledby="company-crowd-title">
+    <section
+      id={hero ? 'top' : undefined}
+      className={`company-crowd ${hero ? 'company-crowd--hero' : ''}`}
+      aria-labelledby="company-crowd-title"
+    >
       <div className="container company-crowd__copy">
-        <span className="company-crowd__eyebrow">Continuous context</span>
-        <h2 id="company-crowd-title">The brain goes wherever the company goes.</h2>
+        {hero ? null : <span className="company-crowd__eyebrow">Continuous context</span>}
+        {hero
+          ? <h1 id="company-crowd-title">The brain goes wherever the company goes.</h1>
+          : <h2 id="company-crowd-title">The brain goes wherever the company goes.</h2>}
         <p>
-          Work moves from teammate to teammate, from inbox to codebase, and from one agent to the
-          next. The shared memory moves with it.
+          Work moves from teammate to teammate, from <img className="company-crowd__inline-logo" src="/brands/gmail.png" alt="" /> inbox to <img className="company-crowd__inline-logo" src="/brands/cursor.png" alt="" /> codebase, and from one <img className="company-crowd__inline-logo" src="/brands/claude.png" alt="" /> agent to the next. The shared memory moves with it.
         </p>
       </div>
       <CrowdCanvas src="/images/peeps/all-peeps.png" rows={15} cols={7} />
