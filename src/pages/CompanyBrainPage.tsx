@@ -2,11 +2,11 @@ import { CSSProperties } from 'react'
 import CompanyBrainPricing from '../components/CompanyBrainPricing'
 import MarketingNav from '../components/marketing/MarketingNav'
 import MarketingFooter from '../components/marketing/MarketingFooter'
-import { ProductHero, SectionIntro, NumberedCardGrid, ProductCTA } from '../components/marketing/primitives'
+import { SectionIntro, NumberedCardGrid, ProductCTA } from '../components/marketing/primitives'
 import LivingMemoryTimeline from '../components/marketing/LivingMemoryTimeline'
 import KnowledgeFlowGraph from '../components/marketing/KnowledgeFlowGraph'
 import CompanyCrowdScene from '../components/marketing/CompanyCrowdScene'
-import { COMPANY_BRAIN_CONNECTORS } from '../components/marketing/companyBrainConnectors'
+import { COMPANY_BRAIN_DISCONNECTED_CONNECTORS } from '../components/marketing/companyBrainConnectors'
 import { getDashboardUrl } from '../lib/dashboard-routing'
 import { SITE_ORIGIN, useSeo } from '../lib/seo'
 import '../components/company-brain-pricing.css'
@@ -37,13 +37,13 @@ const governance = [
 function DisconnectedCompanyTools() {
   return (
     <div className="company-problem__tools" aria-label="Company knowledge fragmented across disconnected tools">
-      {COMPANY_BRAIN_CONNECTORS.map((connector, index) => (
+      {COMPANY_BRAIN_DISCONNECTED_CONNECTORS.map((connector, index) => (
         <figure
           key={connector.id}
           className="company-problem__tool"
           style={{ '--i': index } as CSSProperties}
         >
-          <img src={connector.logo} alt="" />
+          <img src={connector.logo} alt="" data-channel={connector.id} />
           <figcaption>{connector.label}</figcaption>
         </figure>
       ))}
@@ -76,12 +76,7 @@ export default function CompanyBrainPage() {
     <div className="landing-shell memcode-look">
       <MarketingNav />
       <main>
-        <ProductHero
-          title={<>The universal brain<br />behind your company.</>}
-          subtitle="Every conversation, decision, customer signal, document, and code change becomes living context that your people, agents, and workflows can share — wherever work happens."
-          primary={{ label: 'Talk to Founder', booking: true }}
-          backgroundImage="/company_brain_1.jpeg"
-        />
+        <CompanyCrowdScene hero />
 
         <section className="x-section x-section--paper">
           <div className="container">
@@ -90,8 +85,9 @@ export default function CompanyBrainPage() {
               title="Your company already has a brain. It’s just split across every tool."
               dark={false}
             >
-              Slack knows the conversation. Notion knows the plan. Gmail knows the customer.
-              Claude, Codex, and Cursor know the work they touched. None of them knows the whole company.
+              Your company’s brain already lives in Slack, WhatsApp, and Telegram — it’s just fragmented.
+              Notion knows the plan. Gmail knows the customer. Claude, Codex, and Cursor know the work
+              they touched. MemCode connects it into one shared brain.
             </SectionIntro>
             <div className="company-problem">
               <DisconnectedCompanyTools />
@@ -167,8 +163,6 @@ export default function CompanyBrainPage() {
           </div>
         </section>
 
-        <CompanyCrowdScene />
-
         <section
           id="pricing"
           className="x-section x-section--dark company-brain-pricing--marketing"
@@ -196,7 +190,9 @@ export default function CompanyBrainPage() {
           eyebrow="Company Brain"
           title="Put one universal brain behind your company."
           copy="Connect the systems your company already runs on. Give every person, agent, and workflow the same current, accountable context."
-          action={{ label: 'Explore the memory layer', href: '/memory' }}
+          action={{ label: 'Talk to Founder', booking: true }}
+          tone="dark"
+          backgroundImage="/company_brain_1.jpeg"
         />
       </main>
       <MarketingFooter />

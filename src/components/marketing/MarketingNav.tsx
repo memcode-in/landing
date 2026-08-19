@@ -1,12 +1,19 @@
 import { getDashboardUrl } from '../../lib/dashboard-routing'
+import { COMPANY_BRAIN_CHANNELS } from './companyBrainConnectors'
 
 const PRODUCT_LINKS = [
-  { label: 'Company Brain', href: '/company-brain', description: 'Shared organizational memory' },
+  {
+    label: 'Company Brain',
+    href: '/company-brain',
+    description: 'Shared organizational memory',
+    channels: COMPANY_BRAIN_CHANNELS,
+  },
   { label: 'Coding Agent', href: '/coding-agent', description: 'A terminal agent that remembers' },
   { label: 'Memory', href: '/memory', description: 'Memory infrastructure for any agent' },
 ] as const
 
 const CORE_LINKS = [
+  { label: 'Docs', href: '/docs' },
   { label: 'Research', href: '/research' },
   { label: 'Blog', href: '/blogs' },
 ] as const
@@ -20,7 +27,7 @@ function isProductActive(pathname: string, href: string) {
 }
 
 function isSiteLinkActive(pathname: string, href: string) {
-  if (href === '/research' || href === '/blogs') {
+  if (href === '/docs' || href === '/research' || href === '/blogs') {
     return pathname === href || pathname.startsWith(`${href}/`)
   }
   return false
@@ -55,6 +62,7 @@ function ProductMenu({ mobile = false }: { mobile?: boolean }) {
       <div className="mk-products__menu">
         {PRODUCT_LINKS.map((link) => {
           const active = isProductActive(pathname, link.href)
+          const channels = 'channels' in link ? link.channels : undefined
           return (
             <a
               key={link.href}
@@ -62,8 +70,22 @@ function ProductMenu({ mobile = false }: { mobile?: boolean }) {
               className={active ? 'mk-products__item is-active' : 'mk-products__item'}
               aria-current={active ? 'page' : undefined}
             >
-              <strong>{link.label}</strong>
-              <small>{link.description}</small>
+              {channels ? (
+                <span className="mk-products__channel-stack" aria-hidden="true">
+                  {channels.map((channel) => (
+                    <img
+                      key={channel.id}
+                      src={channel.logo}
+                      alt=""
+                      data-channel={channel.id}
+                    />
+                  ))}
+                </span>
+              ) : null}
+              <span className="mk-products__item-copy">
+                <strong>{link.label}</strong>
+                <small>{link.description}</small>
+              </span>
             </a>
           )
         })}
