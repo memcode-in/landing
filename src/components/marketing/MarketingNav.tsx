@@ -70,20 +70,22 @@ function ProductMenu({ mobile = false }: { mobile?: boolean }) {
               className={active ? 'mk-products__item is-active' : 'mk-products__item'}
               aria-current={active ? 'page' : undefined}
             >
-              {channels ? (
-                <span className="mk-products__channel-stack" aria-hidden="true">
-                  {channels.map((channel) => (
-                    <img
-                      key={channel.id}
-                      src={channel.logo}
-                      alt=""
-                      data-channel={channel.id}
-                    />
-                  ))}
-                </span>
-              ) : null}
               <span className="mk-products__item-copy">
-                <strong>{link.label}</strong>
+                <span className="mk-products__item-title">
+                  {channels ? (
+                    <span className="mk-products__channel-stack" aria-hidden="true">
+                      {channels.map((channel) => (
+                        <img
+                          key={channel.id}
+                          src={channel.logo}
+                          alt=""
+                          data-channel={channel.id}
+                        />
+                      ))}
+                    </span>
+                  ) : null}
+                  <strong>{link.label}</strong>
+                </span>
                 <small>{link.description}</small>
               </span>
             </a>
