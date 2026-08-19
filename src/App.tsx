@@ -1,10 +1,9 @@
 import type { ReactNode } from 'react'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/react'
 import HomePage from './pages/HomePage'
 import CompanyBrainPage from './pages/CompanyBrainPage'
 import CodingAgentPage from './pages/CodingAgentPage'
 import MemoryInfraPage from './pages/MemoryInfraPage'
+import DeveloperDocsPage from './pages/DeveloperDocsPage'
 import { BlogPostPage, BlogsPage } from './pages/BlogPages'
 import ResearchPage from './pages/ResearchPage'
 import ContactPage from './pages/ContactPage'
@@ -65,6 +64,10 @@ function AppRoutes() {
     return <ContactPage />
   }
 
+  if (window.location.pathname === '/docs' || window.location.pathname === '/docs/memory') {
+    return <DeveloperDocsPage />
+  }
+
   const blogMatch = window.location.pathname.match(/^\/blogs\/([^/]+)/)
   if (blogMatch?.[1]) {
     return <BlogPostPage slug={decodeURIComponent(blogMatch[1])} />
@@ -86,11 +89,5 @@ function AppRoutes() {
 }
 
 export default function App() {
-  return (
-    <>
-      <AppRoutes />
-      <Analytics />
-      <SpeedInsights />
-    </>
-  )
+  return <AppRoutes />
 }

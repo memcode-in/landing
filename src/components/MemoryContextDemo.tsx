@@ -5,6 +5,7 @@ type SourceMode = 'link' | 'file'
 type RunState = 'idle' | 'working' | 'complete' | 'error'
 
 interface ApiEnvelope<T> {
+  status?: 'ok' | 'error'
   data?: T
   error?: string
   detail?: string | Array<{ msg?: string }>
@@ -72,7 +73,7 @@ async function readApiEnvelope<T>(response: Response) {
     body = null
   }
 
-  if (!response.ok) {
+  if (!response.ok || body?.status === 'error') {
     const detail = Array.isArray(body?.detail)
       ? body.detail.map((item) => item.msg).filter(Boolean).join(' ')
       : body?.detail
@@ -83,7 +84,7 @@ async function readApiEnvelope<T>(response: Response) {
 }
 
 function resultLabel(state: RunState) {
-  if (state === 'working') return 'Processing pairs'
+  if (state === 'working') return 'Working'
   if (state === 'complete') return 'Complete'
   if (state === 'error') return 'Needs attention'
   return null
@@ -375,11 +376,11 @@ export default function MemoryContextDemo() {
           ) : isWorking ? (
             <div className="context-demo__processing">
               <div className="context-demo__empty-visual" aria-hidden="true"><i /><i /><i /><span /></div>
-              <span>Pair-by-pair reduction</span>
-              <strong>Parsing the source and judging each user / assistant pair…</strong>
-              <p>Each user and assistant message stays in its original role while temporary memory is formed in ordered batches of three.</p>
+              <span>Reducing context</span>
+              <strong>Keeping the details that matter…</strong>
+              <p>Removing repetition and filler without losing facts, preferences, or decisions.</p>
               <div className="context-demo__progress context-demo__progress--indeterminate">
-                <div><span>Working in request memory</span></div>
+                <div><span>Preparing your result</span></div>
                 <i role="progressbar" aria-label="Context reduction in progress"><em /></i>
               </div>
             </div>
