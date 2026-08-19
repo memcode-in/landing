@@ -1,12 +1,18 @@
 import { getDashboardUrl } from '../../lib/dashboard-routing'
 import { COMPANY_BRAIN_CHANNELS } from './companyBrainConnectors'
 
+const COMPANY_BRAIN_NAV_CHANNELS = [
+  COMPANY_BRAIN_CHANNELS[1],
+  COMPANY_BRAIN_CHANNELS[2],
+  COMPANY_BRAIN_CHANNELS[0],
+] as const
+
 const PRODUCT_LINKS = [
   {
     label: 'Company Brain',
     href: '/company-brain',
     description: 'Shared organizational memory',
-    channels: COMPANY_BRAIN_CHANNELS,
+    channels: COMPANY_BRAIN_NAV_CHANNELS,
   },
   { label: 'Coding Agent', href: '/coding-agent', description: 'A terminal agent that remembers' },
   { label: 'Memory', href: '/memory', description: 'Memory infrastructure for any agent' },
@@ -72,6 +78,7 @@ function ProductMenu({ mobile = false }: { mobile?: boolean }) {
             >
               <span className="mk-products__item-copy">
                 <span className="mk-products__item-title">
+                  <strong>{link.label}</strong>
                   {channels ? (
                     <span className="mk-products__channel-stack" aria-hidden="true">
                       {channels.map((channel) => (
@@ -84,7 +91,6 @@ function ProductMenu({ mobile = false }: { mobile?: boolean }) {
                       ))}
                     </span>
                   ) : null}
-                  <strong>{link.label}</strong>
                 </span>
                 <small>{link.description}</small>
               </span>
