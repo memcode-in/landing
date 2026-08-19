@@ -1752,228 +1752,6 @@ section[id],
 }
 
 /* --------------------------------------------------------------------------
-   Flagship: MemoryInspector
-   ------------------------------------------------------------------------ */
-.mem-inspector {
-  border: 1px solid rgba(16, 19, 26, 0.12);
-  border-radius: 16px;
-  overflow: hidden;
-  background: #0b111c;
-  box-shadow: 0 20px 50px rgba(16, 30, 60, 0.16);
-}
-
-.mem-inspector__bar {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.7rem 1rem;
-  background: #0e1524;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  color: #fff;
-}
-
-.mem-inspector__bar strong {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-}
-
-.mem-inspector__dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 999px;
-  background: var(--cyan);
-  box-shadow: 0 0 8px var(--cyan);
-}
-
-.mem-inspector__scope {
-  margin-left: auto;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.mem-inspector__body {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  min-height: 320px;
-}
-
-.mem-inspector__list {
-  list-style: none;
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
-  overflow-y: auto;
-}
-
-.mem-inspector__list button {
-  display: grid;
-  gap: 0.25rem;
-  width: 100%;
-  padding: 0.85rem 1rem;
-  text-align: left;
-  background: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  transition: background 140ms ease;
-}
-
-.mem-inspector__list button:hover {
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.mem-inspector__list button.is-active {
-  background: rgba(47, 125, 255, 0.12);
-  box-shadow: inset 3px 0 0 var(--blue);
-}
-
-.mem-inspector__value {
-  color: #fff;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.mem-inspector__list small {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.mem-inspector__domain {
-  width: fit-content;
-  padding: 0.15rem 0.5rem;
-  border-radius: 5px;
-  font-family: var(--font-mono);
-  font-size: 0.64rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.mem-inspector__domain[data-domain="account"] { background: rgba(47, 125, 255, 0.18); color: var(--blue-3); }
-.mem-inspector__domain[data-domain="product"] { background: rgba(74, 215, 255, 0.18); color: #8be5ff; }
-.mem-inspector__domain[data-domain="policy"] { background: rgba(255, 176, 32, 0.18); color: #ffd27a; }
-.mem-inspector__domain[data-domain="support"] { background: rgba(157, 204, 255, 0.16); color: var(--blue-3); }
-
-.mem-inspector__detail {
-  padding: 1.2rem 1.3rem;
-  color: #fff;
-  animation: mk-fade-in 280ms ease both;
-}
-
-.mem-inspector__detail h4 {
-  margin: 0.6rem 0 1rem;
-  font-size: 1.15rem;
-  line-height: 1.4;
-}
-
-.mem-inspector__meta {
-  display: grid;
-  gap: 0.7rem;
-  margin-bottom: 1.1rem;
-}
-
-.mem-inspector__meta div {
-  display: grid;
-  grid-template-columns: 90px 1fr;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.mem-inspector__meta dt {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.mem-inspector__meta dd {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.mem-inspector__meta code {
-  font-family: var(--font-mono);
-  color: var(--cyan);
-  font-size: 0.8rem;
-}
-
-.mem-inspector__conf {
-  width: 70px;
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  overflow: hidden;
-}
-
-.mem-inspector__conf em {
-  display: block;
-  height: 100%;
-  background: linear-gradient(90deg, var(--blue), var(--cyan));
-}
-
-.mem-inspector__trail {
-  padding: 0.9rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.02);
-  margin-bottom: 1.1rem;
-}
-
-.mem-inspector__trail > span {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--blue-2);
-}
-
-.mem-inspector__trail ol {
-  margin: 0.5rem 0 0;
-  padding-left: 1.1rem;
-  display: grid;
-  gap: 0.3rem;
-}
-
-.mem-inspector__trail li {
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.mem-inspector__actions {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.mem-inspector__act {
-  padding: 0.45rem 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.04);
-  color: #fff;
-  font-size: 0.8rem;
-  font-weight: 600;
-  transition: background 140ms ease, border-color 140ms ease;
-}
-
-.mem-inspector__act:hover {
-  border-color: var(--blue-2);
-  background: rgba(47, 125, 255, 0.14);
-}
-
-.mem-inspector__act.is-danger:hover {
-  border-color: #ff6b6b;
-  background: rgba(255, 92, 92, 0.16);
-  color: #ffb3b3;
-}
-
-@media (max-width: 640px) {
-  .mem-inspector__body { grid-template-columns: 1fr; }
-  .mem-inspector__list { max-height: 200px; border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
-}
-
-/* --------------------------------------------------------------------------
    Company Brain page
    ------------------------------------------------------------------------ */
 .product-explainer__visual {
@@ -2497,63 +2275,11 @@ section[id],
   line-height: 1.55;
 }
 
-.memory-governance__header {
-  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
-}
-
-.memory-governance__header h2 {
-  max-width: 760px;
-  margin-top: 1rem;
-  color: var(--ink);
-  font-family: var(--font-display);
-  font-size: clamp(2.6rem, 5vw, 5rem);
-  font-weight: 620;
-  letter-spacing: -0.035em;
-  line-height: 0.98;
-}
-
-.mem-gov {
-  display: grid;
-  grid-template-columns: minmax(210px, 0.42fr) minmax(0, 1.58fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: start;
-}
-
-.mem-gov__principles {
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid rgba(16, 19, 26, 0.18);
-  list-style: none;
-}
-
-.mem-gov__principles li {
-  display: grid;
-  grid-template-columns: 2.5rem 1fr;
-  gap: 0.75rem;
-  align-items: center;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid rgba(16, 19, 26, 0.18);
-}
-
-.mem-gov__principles span {
-  color: rgba(16, 19, 26, 0.34);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-}
-
-.mem-gov__principles strong {
-  color: var(--ink);
-  font-size: 0.98rem;
-  font-weight: 650;
-}
-
 @media (max-width: 900px) {
   .control-plane { grid-template-columns: 1fr; }
   .control-plane__arrow { justify-self: center; }
   .control-plane__arrow i { transform: rotate(90deg); }
   .pillars { grid-template-columns: repeat(2, 1fr); }
-  .mem-gov { grid-template-columns: 1fr; gap: 2rem; }
 }
 
 @media (max-width: 520px) {
@@ -2596,7 +2322,6 @@ section[id],
 .mk-showcase__tab:focus-visible,
 .flow-node--con:focus-visible,
 .retrieval-router__queries button:focus-visible,
-.mem-inspector__list button:focus-visible,
 .mk-card--link:focus-visible {
   outline: 2px solid var(--blue-2);
   outline-offset: 2px;
@@ -2610,8 +2335,7 @@ section[id],
   .company-problem__tool,
   .company-problem__cost,
   .gov-matrix__cell,
-  .pillars__cell,
-  .mem-inspector__detail {
+  .pillars__cell {
     animation: none !important;
   }
   .recall-gauge__arc {

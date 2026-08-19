@@ -4,7 +4,6 @@ import MarketingFooter from '../components/marketing/MarketingFooter'
 import { ProductHero, SectionIntro, NumberedCardGrid, ProductCTA } from '../components/marketing/primitives'
 import MemoryContextDemo from '../components/MemoryContextDemo'
 import RetrievalRouter from '../components/marketing/RetrievalRouter'
-import MemoryInspector from '../components/marketing/MemoryInspector'
 import MemoryPricing from '../components/MemoryPricing'
 import { SITE_ORIGIN, useSeo } from '../lib/seo'
 import '../components/memory-context-demo.css'
@@ -42,8 +41,6 @@ const useCases = [
   { title: 'Support copilots', copy: 'Customer history and policy that every reply can rely on.' },
   { title: 'Personal AI stacks', copy: 'One memory your own tools and agents share, that you own.' },
 ]
-
-const governance = ['Open source', 'Inspectable', 'Portable']
 
 function MemoryApiVisual() {
   return (
@@ -184,26 +181,6 @@ export default function MemoryInfraPage() {
           <div className="container">
             <SectionIntro eyebrow="Use cases" title="One layer under every AI system you build." />
             <NumberedCardGrid cards={useCases} columns={4} />
-          </div>
-        </section>
-
-        <section className="x-section x-section--paper memory-governance">
-          <div className="container">
-            <div className="memory-governance__header">
-              <span className="x-label x-label--dark">Control</span>
-              <h2>Know what your AI knows.</h2>
-            </div>
-            <div className="mem-gov">
-              <ol className="mem-gov__principles" aria-label="Memory control principles">
-                {governance.map((principle, index) => (
-                  <li key={principle}>
-                    <span>{String(index + 1).padStart(2, '0')}</span>
-                    <strong>{principle}</strong>
-                  </li>
-                ))}
-              </ol>
-              <MemoryInspector />
-            </div>
           </div>
         </section>
 
