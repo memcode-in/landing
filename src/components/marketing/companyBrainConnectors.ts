@@ -2,6 +2,7 @@ export const COMPANY_BRAIN_CHANNELS = [
   { id: 'slack', label: 'Slack', logo: '/brands/slack.png', invertOnDark: false },
   { id: 'whatsapp', label: 'WhatsApp', logo: '/brands/whatsapp.png', invertOnDark: false },
   { id: 'telegram', label: 'Telegram', logo: '/brands/telegram.png', invertOnDark: false },
+  { id: 'teams', label: 'Microsoft Teams', logo: '/team.png', invertOnDark: false },
 ] as const
 
 const COMPANY_BRAIN_KNOWLEDGE_SOURCES = [

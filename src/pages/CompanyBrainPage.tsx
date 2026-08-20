@@ -84,9 +84,9 @@ export default function CompanyBrainPage() {
               title="Your company already has a brain. It’s just split across every tool."
               dark={false}
             >
-              Your company’s brain already lives in Slack, WhatsApp, and Telegram — it’s just fragmented.
-              Notion knows the plan. Gmail knows the customer. Claude, Codex, and Cursor know the work
-              they touched. MemCode connects it into one shared brain.
+              Your company’s brain already lives in Slack, WhatsApp, Telegram, and Microsoft Teams —
+              it’s just fragmented. Notion knows the plan. Gmail knows the customer. Claude, Codex,
+              and Cursor know the work they touched. MemCode connects it into one shared brain.
             </SectionIntro>
             <div className="company-problem">
               <DisconnectedCompanyTools />
